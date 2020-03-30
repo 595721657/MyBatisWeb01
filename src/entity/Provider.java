@@ -20,6 +20,13 @@ public class Provider {
      private Date creationDate;//创建时间
      private Date modifyDate;//更新时间
      private int modifyBy;//更新者(userid)
+	 private String createUserName;	 
+     public String getCreateUserName() {
+		return createUserName;
+	}
+	public void setCreateUserName(String createUserName) {
+		this.createUserName = createUserName;
+	}
 	public int getId() {
 		return id;
 	}

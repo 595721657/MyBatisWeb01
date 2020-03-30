@@ -49,15 +49,17 @@
    <!--配置实体类与数据库表的sql映射文件  -->  
    <mappers>
    <!--resource:是给我们书写映射文件的全路径  -->
-     <!-- 用户 -->
-     <mapper resource="dao/user/UserMapper.xml"/>
-     <!-- 供应商 -->
+      <!--用户  -->
+     <!-- <mapper resource="dao/user/UserMapper.xml"/>
+             供应商
      <mapper resource="dao/provider/ProviderMapper.xml"/>
-     <!-- 供应商地址 -->
+              供应商地址
      <mapper resource="dao/address/AddressMapper.xml"/>
-     <!-- 账单 -->
+             账单
      <mapper resource="dao/bill/BillMapper.xml"/>
-     <!-- 角色 -->
-     <mapper resource="dao/role/RoleMapper.xml"/>
+             角色
+     <mapper resource="dao/role/RoleMapper.xml"/> -->
+     <!-- 可以定义package进行指定包的扫描 -->
+     <package name="dao"/>
    </mappers>   
 </configuration>

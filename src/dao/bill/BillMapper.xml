@@ -6,4 +6,26 @@
   <select id="getAll" resultType="Bill">
      SELECT * FROM smbms_bill
   </select>
+  <!-- 通过商品名称(模糊查询) 供应商 是否付款查询数据 -->
+  <select id="getBillList" resultMap="bList" parameterType="Bill">
+  SELECT b.*,p.`proName`,p.`proContact`,p.`proPhone`,p.proCode FROM smbms_bill b INNER JOIN smbms_provider p ON(p.id=b.`providerId`) WHERE productName LIKE CONCAT('%',#{productName},'%')
+  AND providerId=#{providerId}
+  AND isPayment=#{isPayment}
+  </select>
+  <!-- 自动装配一个展示 的数据集 -->
+  <resultMap type="Bill" id="bList">
+    <result property="billCode" column="billCode"/>
+    <result property="productName" column="productName"/>
+    <result property="productCount" column="productCount"/>
+    <result property="isPayment" column="isPayment"/>
+    <!-- 引用供应商表的信息 -->
+    <association property="provider" resultMap="plist" javaType="Provider"></association>
+  </resultMap>
+  <!-- 定义一个供应商的结果集 -->
+  <resultMap type="Provider" id="plist">
+    <result property="proCode" column="proCode"/>
+    <result property="proName" column="proName"/>
+    <result property="proContact" column="proContact"/>
+    <result property="proPhone" column="proPhone"/>    
+  </resultMap>
 </mapper>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SSMS数据库汇总</title>
+<title>SMBMS数据库汇总</title>
 <style type="text/css">
   *{
   margin: 0px auto;

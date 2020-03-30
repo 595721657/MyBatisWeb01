@@ -40,7 +40,7 @@
         <td>${p.proPhone }</td>
         <td>${p.proAddress}</td>
         <td>${p.proFax}</td>
-        <td>${p.createdBy}</td>
+        <td>${p.createUserName}</td>
         <td><fmt:formatDate value="${p.creationDate}" pattern="YYYY-MM-dd HH:mm:ss"/></td>
         <td>${p.modifyBy}</td>
         <td><fmt:formatDate value="${p.modifyDate}" pattern="YYYY-MM-dd HH:mm:ss"/></td>

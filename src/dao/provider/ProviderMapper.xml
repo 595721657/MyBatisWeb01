@@ -3,7 +3,17 @@
 <!-- namespace:写成mapper接口的全路径名 -->
 <mapper namespace="dao.provider.ProviderMapper">
   <!-- 定义获得数据库所有数据的方法 -->
-  <select id="getAll" resultType="Provider">
-     SELECT * FROM smbms_provider 
+  <!-- 如果实体类的属性名和数据库查询的列名不一致的解决方法
+       1.取别名 在sql里面用别名 
+       2.采用resultMap来做一个自定义的映射
+       
+   -->
+   <resultMap type="Provider" id="plist">
+     <!-- 将不一样的列名书写在这里 -->
+     <result property="createUserName" column="userName"/>
+   </resultMap>
+  <select id="getAll"  resultMap="plist">
+     SELECT p.*,u.userName  FROM smbms_provider p
+     INNER JOIN smbms_user u ON(p.createdBy=u.id)
   </select>
 </mapper>
